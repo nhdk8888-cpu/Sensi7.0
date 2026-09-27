@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KHANG CHEAT FF - SENSITIVITY VIP</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            /* Light Mode Colors */
+            --ios-card: rgba(255, 255, 255, 0.75);
+            --ios-text: #2d0c4e;
+            --ios-text-secondary: #7b52ab;
+            --ios-blue: #8a2be2; 
+            --ios-blue-active: #6a0dad;
+            --ios-border: rgba(138, 43, 226, 0.2);
+            --ios-shadow: 0 20px 40px rgba(106, 13, 173, 0.12);
+            --glass-blur: blur(25px);
+            --accent: #ff007f;
+            
+            --overlay-bg: rgba(245, 240, 255, 0.25);
+            --card-inner: inset 0 1px 1px rgba(255, 255, 255, 0.8);
+            --inner-light: inset 0 1px 1px rgba(255, 255, 255, 0.9);
+            --ring-gradient: conic-gradient(from 0deg, #bf55ec, #7b2cbf, #bd00ff, #bf55ec);
+        }
+
+        :root[data-theme="dark"] {
+            /* Dark Mode Colors */
+            --ios-card: rgba(25, 15, 38, 0.65);
+            --ios-text: #f3e8ff;
+            --ios-text-secondary: #c084fc;
+            --ios-blue: #a855f7; 
+            --ios-blue-active: #9333ea;
+            --ios-border: rgba(168, 85, 247, 0.3);
+            --ios-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(168, 85, 247, 0.2);
+            
+            --overlay-bg: rgba(15, 5, 25, 0.35); 
+            --card-inner: inset 0 1px 0 rgba(233, 213, 255, 0.2);
+            --inner-light: inset 0 1px 1px rgba(233, 213, 255, 0.25);
+            --ring-gradient: conic-gradient(from 0deg, #d8b4fe, #c084fc, #a855f7, #d8b4fe);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        body {
+            color: var(--ios-text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px 15px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- VIDEO BACKGROUND --- */
+        .bg-video {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            object-fit: cover;
+            z-index: -2;
+        }
+        .video-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: var(--overlay-bg);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            z-index: -1;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--ios-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--ios-border);
+            border-radius: 32px;
+            padding: 25px;
+            box-shadow: var(--ios-shadow), var(--card-inner);
+            position: relative;
+            z-index: 2;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            min-height: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 5px;
+        }
+
+        /* --- AVATAR + CHỮ DUỚI AVATAR --- */
+        .avatar-container {
+            position: absolute;
+            left: 0px; 
+            top: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 60px;
+        }
+        .avatar-wrapper {
+            width: 48px; 
+            height: 48px;
+            position: relative;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+        .magic-ring {
+            position: absolute;
+            width: 100%; 
+            height: 100%;
+            border-radius: 50%;
+            background: var(--ring-gradient);
+            animation: spinRing 3s linear infinite;
+            z-index: 1;
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.7);
+        }
+        .magic-ring::after {
+            content: "";
+            position: absolute;
+            inset: 2px;
+            background: var(--ios-card);
+            border-radius: 50%;
+        }
+        .avatar-img {
+            width: 40px; 
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            z-index: 2;
+        }
+        @keyframes spinRing { 100% { transform: rotate(360deg); } }
+
+        /* Chữ bên dưới Avatar */
+        .avatar-caption {
+            font-size: 0.58rem;
+            font-weight: 800;
+            color: var(--ios-blue);
+            margin-top: 4px;
+            text-align: center;
+            line-height: 1.1;
+            text-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+            white-space: nowrap;
+        }
+
+        /* --- LOGO SENSI PHÁT SÁNG & ĐẨY LÊN --- */
+        .title-logo-img {
+            width: 100%;
+            max-width: 310px;
+            height: auto;
+            max-height: 115px;
+            object-fit: contain;
+            background: transparent;
+            display: block;
+            margin: -10px auto 5px auto; /* Tăng đẩy lên trên */
+            filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.85)) drop-shadow(0 0 8px rgba(192, 132, 252, 0.5));
+        }
+
+        .header p {
+            font-size: 0.75rem;
+            color: var(--ios-text-secondary);
+            margin-top: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            background: rgba(168, 85, 247, 0.15);
+            border: 1px solid var(--ios-border);
+            color: var(--ios-text);
+            cursor: pointer;
+            font-size: 1.1rem;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: var(--inner-light);
+        }
+
+        .form-group { margin-bottom: 22px; }
+
+        label.section-title {
+            display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 10px;
+            color: var(--ios-text-secondary); text-transform: uppercase;
+        }
+
+        .segmented-control {
+            display: flex; background: rgba(168, 85, 247, 0.1);
+            border-radius: 14px; padding: 4px; border: 1px solid var(--ios-border);
+        }
+        .segmented-control label {
+            flex: 1; text-align: center; padding: 12px 0; font-size: 0.9rem;
+            font-weight: 600; color: var(--ios-text-secondary); cursor: pointer;
+            border-radius: 10px;
+        }
+        .segmented-control input { display: none; }
+        .segmented-control input:checked + label {
+            background: var(--ios-card); color: var(--ios-blue);
+            box-shadow: 0 4px 12px rgba(138, 43, 226, 0.2), var(--inner-light);
+            border: 1px solid var(--ios-border);
+            font-weight: 700;
+        }
+
+        .input-wrapper { position: relative; }
+        input[type="text"] {
+            width: 100%; background: rgba(168, 85, 247, 0.08); border: 1px solid var(--ios-border);
+            padding: 16px 16px 16px 45px; border-radius: 16px; color: var(--ios-text); font-size: 1rem; outline: none;
+        }
+        input[type="text"]:focus { border-color: var(--ios-blue); box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.25); }
+        .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--ios-text-secondary); }
+        
+        .autocomplete-suggestions {
+            position: absolute; top: 100%; left: 0; right: 0; background: var(--ios-card);
+            border: 1px solid var(--ios-border); max-height: 200px; overflow-y: auto;
+            z-index: 10; border-radius: 16px; margin-top: 8px; backdrop-filter: var(--glass-blur);
+        }
+        .suggestion-item { padding: 14px 16px; cursor: pointer; border-bottom: 1px solid var(--ios-border); font-weight: 600; }
+        .suggestion-item:hover { background: rgba(168, 85, 247, 0.2); color: var(--ios-blue); }
+
+        .status-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .status-item input { display: none; }
+        .status-box {
+            display: flex; justify-content: center; align-items: center;
+            background: rgba(168, 85, 247, 0.08); border: 1px solid var(--ios-border);
+            padding: 12px 5px; border-radius: 14px; cursor: pointer; font-weight: 600; font-size: 0.8rem;
+            color: var(--ios-text-secondary); text-align: center;
+        }
+        .status-item input:checked + .status-box {
+            background: var(--ios-blue); color: white; border-color: transparent;
+            box-shadow: 0 6px 15px rgba(168, 85, 247, 0.4); transform: translateY(-2px);
+        }
+
+        .btn-submit {
+            width: 100%; background: linear-gradient(135deg, var(--ios-blue), var(--ios-blue-active));
+            color: white; border: none; padding: 18px; border-radius: 20px; font-size: 1.15rem; font-weight: 800;
+            cursor: pointer; margin-top: 15px; box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
+            letter-spacing: 0.5px;
+        }
+
+        .error-message { background: rgba(255, 59, 48, 0.15); border: 1px solid rgba(255, 59, 48, 0.3); color: var(--accent); padding: 14px; border-radius: 16px; margin-top: 20px; font-weight: 700; text-align: center; display: none; }
+        .loading-container { display: none; text-align: center; margin: 30px 0; }
+        .spinner { width: 36px; height: 36px; border: 4px solid rgba(168, 85, 247, 0.2); border-radius: 50%; border-top-color: var(--ios-blue); animation: spin 1s infinite; display: inline-block; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .results-container { display: none; margin-top: 30px; }
+        .results-container.show { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .ios-table { background: rgba(168, 85, 247, 0.05); border-radius: 20px; margin-bottom: 25px; border: 1px solid var(--ios-border); }
+        .table-title { padding: 16px; background: rgba(168, 85, 247, 0.12); font-weight: 800; text-align: center; border-bottom: 1px solid var(--ios-border); color: var(--ios-blue); }
+        .ff-row { padding: 14px 18px; border-bottom: 1px solid var(--ios-border); }
+        .ff-meta { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 8px; }
+        .ff-bar-bg { height: 10px; background: rgba(168, 85, 247, 0.15); border-radius: 5px; overflow: hidden; }
+        .ff-bar-fill { height: 100%; border-radius: 5px; width: 0%; transition: width 1s ease; }
+        
+        .ff-bar-fill.purple { background: linear-gradient(90deg, #a855f7, #bd00ff); } 
+        .ff-bar-fill.orange { background: #ff9500; } 
+        .ff-bar-fill.green { background: #34c759; }
+        
+        .extra-box { display: flex; justify-content: space-around; padding: 18px; }
+        .extra-label { font-size: 0.75rem; color: var(--ios-text-secondary); text-transform: uppercase; font-weight: 700; margin-bottom: 5px;}
+        .extra-val { font-size: 1.3rem; font-weight: 800; color: var(--ios-blue); }
+
+        .history-section { margin-top: 30px; border-top: 1px solid var(--ios-border); padding-top: 20px; }
+        .history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .btn-clear { background: rgba(255, 59, 48, 0.12); border: none; color: var(--accent); padding: 6px 12px; border-radius: 10px; font-weight: 700; }
+        .history-item { padding: 14px; background: rgba(168, 85, 247, 0.08); border: 1px solid var(--ios-border); border-radius: 16px; margin-bottom: 10px; display: flex; justify-content: space-between; font-weight: 600; cursor: pointer; }
+
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 15px 0 5px 0;
+            margin-top: 20px;
+            border-top: 1px dashed var(--ios-border);
+        }
+        .marquee-text {
+            display: inline-block;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--ios-blue);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            animation: scrollText 10s linear infinite; 
+        }
+        @keyframes scrollText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline class="bg-video" id="bgVideo">
+        <source src="anhnen.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+
+    <div class="app-container">
+        <div class="header">
+            <!-- AVATAR VÀ TÊN DƯỚI AVATAR -->
+            <div class="avatar-container">
+                <div class="avatar-wrapper">
+                    <div class="magic-ring"></div>
+                    <img src="anh.png" alt="Avatar" class="avatar-img">
+                </div>
+                <div class="avatar-caption">Khang Cheat FF</div>
+            </div>
+
+            <!-- LOGO PHÁT SÁNG NỔI BẬT & ĐẨY LÊN TRÊN -->
+            <img src="logo.png" alt="Khang Cheat FF Logo" class="title-logo-img">
+
+            <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">
+                <i class="fa-solid fa-sun"></i>
+            </button>
+            <p>KHANG CHEAT FF - SENSITIVITY VIP</p>
+        </div>
+
+        <div class="form-group">
+            <label class="section-title">Hệ điều hành</label>
+            <div class="segmented-control">
+                <input type="radio" id="os_android" name="os" value="Android" checked onchange="handleReset()">
+                <label for="os_android"><i class="fa-brands fa-android"></i> Android</label>
+                
+                <input type="radio" id="os_ios" name="os" value="iOS" onchange="handleReset()">
+                <label for="os_ios"><i class="fa-brands fa-apple"></i> iOS</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="section-title">Phiên bản Free Fire</label>
+            <div class="segmented-control">
+                <input type="radio" id="game_th" name="gamever" value="FFTH" checked onchange="handleReset()">
+                <label for="game_th">FF Thường</label>
+                <input type="radio" id="game_max" name="gamever" value="FFMAX" onchange="handleReset()">
+                <label for="game_max">FF MAX</label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="section-title">Dòng máy của bạn</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="phoneInput" placeholder="VD: Xiaomi 13 Pro, iPhone 14 Pro Max..." oninput="onPhoneInput()" autocomplete="off">
+                <div class="autocomplete-suggestions" id="suggestionsBox" style="display: none;"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="section-title">Phân khúc máy</label>
+            <div class="segmented-control">
+                <input type="radio" id="spec_strong" name="phonespec" value="strong" onchange="handleReset()">
+                <label for="spec_strong">Máy Mạnh</label>
+                <input type="radio" id="spec_medium" name="phonespec" value="medium" checked onchange="handleReset()">
+                <label for="spec_medium">Máy Trung</label>
+                <input type="radio" id="spec_weak" name="phonespec" value="weak" onchange="handleReset()">
+                <label for="spec_weak">Máy Yếu</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="section-title">Bổ trợ sửa lỗi tâm (Tối đa 3)</label>
+            <div class="status-grid">
+                <label class="status-item"><input type="checkbox" name="status" value="nang_tam" onchange="checkMaxCheckboxes(this)"><div class="status-box">Nặng tâm</div></label>
+                <label class="status-item"><input type="checkbox" name="status" value="lo_dau" onchange="checkMaxCheckboxes(this)"><div class="status-box">Lố đầu</div></label>
+                <label class="status-item"><input type="checkbox" name="status" value="rung_tam" onchange="checkMaxCheckboxes(this)"><div class="status-box">Rung tâm</div></label>
+                <label class="status-item"><input type="checkbox" name="status" value="truot_dich" onchange="checkMaxCheckboxes(this)"><div class="status-box">Trượt địch</div></label>
+                <label class="status-item"><input type="checkbox" name="status" value="kho_ghim" onchange="checkMaxCheckboxes(this)"><div class="status-box">Khó ghim</div></label>
+                <label class="status-item"><input type="checkbox" name="status" value="kem_nhay" onchange="checkMaxCheckboxes(this)"><div class="status-box">Kém nhạy</div></label>
+            </div>
+        </div>
+
+        <button class="btn-submit" onclick="generateSensi()">Phân Tích & Lấy Độ Nhạy VIP</button>
+
+        <div class="error-message" id="errorBox"></div>
+        <div class="loading-container" id="loaderBox"><div class="spinner"></div><p style="margin-top: 15px; font-weight: 700; color: var(--ios-text-secondary);">Đang tối ưu hóa cấu hình...</p></div>
+
+        <div class="results-container" id="resultsBox">
+            <div id="tablesDynamicArea"></div>
+        </div>
+
+        <div class="history-section">
+            <div class="history-header">
+                <label class="section-title" style="margin:0;">Lịch sử thiết lập</label>
+                <button class="btn-clear" onclick="clearHistory()">Xóa sạch</button>
+            </div>
+            <div id="historyBox"></div>
+        </div>
+
+        <div class="marquee-container">
+            <div class="marquee-text">✨ KHANG CHEAT FF VIP ✨ ĐỘ NHẠY SIÊU CẤP ✨ VÔ ĐỊCH HEADSHOT ✨</div>
+        </div>
+    </div>
+
+    <script>
+        // BỔ SUNG CÁC DÒNG MÁY XIAOMI VÀO DATABASE
+        const phoneDatabase = [
+            // Xiaomi & Poco
+            "Xiaomi Mi 10T Pro", "Xiaomi Mi 11 Ultra", "Xiaomi 12 Pro", "Xiaomi 12T Pro", "Xiaomi 13", "Xiaomi 13 Pro", "Xiaomi 13 Ultra", "Xiaomi 13T Pro", "Xiaomi 14", "Xiaomi 14 Pro", "Xiaomi 14 Ultra", "Xiaomi 14T", "Xiaomi 14T Pro",
+            "Redmi 9", "Redmi 10", "Redmi 12", "Redmi 13C", "Redmi Note 8", "Redmi Note 9 Pro", "Redmi Note 10 Pro", "Redmi Note 11", "Redmi Note 12 Pro", "Redmi Note 13 Pro 5G", "Redmi Note 13 Pro+",
+            "Redmi K40", "Redmi K50", "Redmi K60 Pro", "Redmi K70", "Redmi K70 Pro",
+            "Poco X3 Pro", "Poco X4 GT", "Poco X5 Pro", "Poco X6 Pro", "Poco F3", "Poco F4", "Poco F5 Pro", "Poco F6 Pro",
+            // Oppo
+            "Find 5", "Find 7", "Find X2", "Find X3 Pro", "Find X5 Pro", "Find X6 Pro", "Find X7 Ultra", "Find N3 Flip",
+            "Reno4", "Reno5", "Reno6", "Reno7", "Reno8", "Reno9", "Reno10", "Reno11", "Reno12 Pro", "Reno13 Pro",
+            "A15", "A16", "A53", "A54", "A57", "A78", "A95", "A98",
+            // Samsung
+            "Galaxy S10", "Galaxy S20 Ultra", "Galaxy S21 Ultra", "Galaxy S22 Ultra", "Galaxy S23 Ultra", "Galaxy S24 Ultra",
+            "Galaxy Note 10+", "Galaxy Note 20 Ultra", "Galaxy A12", "Galaxy A23", "Galaxy A34", "Galaxy A54", "Galaxy A73",
+            // Realme & Vivo
+            "Realme C35", "Realme C53", "Realme 9 Pro+", "Realme 11 Pro+", "Realme 12 Pro+", "Realme GT Neo 5",
+            "Vivo Y20", "Vivo V25", "Vivo V29 5G", "Vivo X90 Pro", "Vivo X100 Pro",
+            // iPhone & iPad
+            "iPhone 7 Plus", "iPhone 8 Plus", "iPhone X", "iPhone XR", "iPhone XS Max", 
+            "iPhone 11", "iPhone 11 Pro Max", "iPhone 12 Pro Max", "iPhone 13 Pro Max", "iPhone 14 Pro Max", "iPhone 15 Pro Max", "iPhone 16 Pro Max",
+            "iPad mini 6", "iPad Air 5", "iPad Pro 11 inch", "iPad Pro 12.9 inch", "iPad Pro M4"
+        ];
+
+        function toggleTheme() {
+            const root = document.documentElement;
+            const btnIcon = document.querySelector("#themeBtn i");
+            if (root.getAttribute("data-theme") === "dark") {
+                root.setAttribute("data-theme", "light");
+                btnIcon.className = "fa-solid fa-moon";
+                localStorage.setItem("theme_khang_vip", "light");
+            } else {
+                root.setAttribute("data-theme", "dark");
+                btnIcon.className = "fa-solid fa-sun";
+                localStorage.setItem("theme_khang_vip", "dark");
+            }
+        }
+
+        function loadSavedTheme() {
+            const savedTheme = localStorage.getItem("theme_khang_vip");
+            const btnIcon = document.querySelector("#themeBtn i");
+            if (savedTheme === "light") {
+                document.documentElement.setAttribute('data-theme', 'light');
+                btnIcon.className = "fa-solid fa-moon";
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                btnIcon.className = "fa-solid fa-sun";
+            }
+        }
+
+        function hashCode(str) { let hash = 0; for(let i=0;i<str.length;i++) { hash = (hash<<5)-hash+str.charCodeAt(i); hash |= 0; } return Math.abs(hash); }
+        function seededRandom(seed) { let x = Math.sin(seed) * 10000; return x - Math.floor(x); }
+        function getSensValue(min, max, seed) { return Math.floor(seededRandom(seed) * (max - min + 1)) + min; }
+        function cleanString(str) { return str.trim().toLowerCase().replace(/\s+/g, ''); }
+
+        function onPhoneInput() {
+            const input = document.getElementById("phoneInput").value;
+            const box = document.getElementById("suggestionsBox");
+            box.innerHTML = "";
+            if (!input) { box.style.display = "none"; return; }
+            const filtered = phoneDatabase.filter(p => cleanString(p).includes(cleanString(input))).slice(0, 5);
+            if (filtered.length === 0) { box.style.display = "none"; return; }
+            filtered.forEach(item => {
+                const div = document.createElement("div"); div.className = "suggestion-item"; div.innerText = item;
+                div.onclick = () => { document.getElementById("phoneInput").value = item; box.style.display = "none"; handleReset(); };
+                box.appendChild(div);
+            });
+            box.style.display = "block";
+        }
+
+        document.addEventListener("click", (e) => { if (e.target.id !== "phoneInput") document.getElementById("suggestionsBox").style.display = "none"; });
+        function checkMaxCheckboxes(el) { if (document.querySelectorAll('input[name="status"]:checked').length > 3) el.checked = false; handleReset(); }
+        function handleReset() { document.getElementById("resultsBox").classList.remove("show"); document.getElementById("errorBox").style.display = "none"; }
+
+        function generateSensi() {
+            const os = document.querySelector('input[name="os"]:checked').value;
+            const gamever = document.querySelector('input[name="gamever"]:checked').value;
+            const phonespec = document.querySelector('input[name="phonespec"]:checked').value;
+            const phoneRaw = document.getElementById("phoneInput").value.trim();
+            const errorBox = document.getElementById("errorBox");
+            const resultsBox = document.getElementById("resultsBox");
+            const loaderBox = document.getElementById("loaderBox");
+            const tablesDynamicArea = document.getElementById("tablesDynamicArea");
+
+            errorBox.style.display = "none"; resultsBox.classList.remove("show"); tablesDynamicArea.innerHTML = "";
+
+            if (!phoneRaw) { errorBox.innerText = "Vui lòng nhập tên dòng máy của bạn!"; errorBox.style.display = "block"; return; }
+            const isIphoneOrIpad = phoneRaw.toLowerCase().includes("iphone") || phoneRaw.toLowerCase().includes("ipad");
+            if ((os === "iOS" && !isIphoneOrIpad) || (os === "Android" && isIphoneOrIpad)) { errorBox.innerText = "Hệ điều hành đã chọn không khớp với dòng máy!"; errorBox.style.display = "block"; return; }
+
+            loaderBox.style.display = "block";
+            const checkedStatus = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value);
+            const seedBase = hashCode(cleanString(phoneRaw) + os + gamever + phonespec + checkedStatus.join(""));
+
+            setTimeout(() => {
+                loaderBox.style.display = "none";
+                let specMod = 0, dpiMod = 0, fixLook = 0, fixRed = 0;
+                if (gamever === "FFMAX" && phonespec === "strong") specMod = -getSensValue(6, 15, seedBase + 1);
+                else if (gamever === "FFTH" && phonespec === "strong") specMod = -getSensValue(5, 12, seedBase + 2);
+                else if (phonespec === "weak") { specMod = getSensValue(8, 15, seedBase + 3); dpiMod = 30; }
+
+                checkedStatus.forEach(st => {
+                    if(st==="nang_tam"){ fixLook+=6; fixRed+=5; } if(st==="lo_dau"){ fixLook-=8; fixRed-=10; }
+                    if(st==="rung_tam"){ fixRed-=6; } if(st==="truot_dich"){ fixLook+=4; fixRed+=6; }
+                    if(st==="kho_ghim"){ fixLook+=5; fixRed+=4; } if(st==="kem_nhay"){ fixLook+=10; fixRed+=10; dpiMod+=20; }
+                });
+
+                const createSensi = (t, c, lMin, lMax, rMin, rMax, s1) => ({
+                    title: t, color: c,
+                    look: Math.min(200, Math.max(100, getSensValue(lMin, lMax, seedBase+s1) + specMod + fixLook)),
+                    reddot: Math.min(200, Math.max(90, getSensValue(rMin, rMax, seedBase+s1+1) + specMod + fixRed)),
+                    s2x: getSensValue(158, 185, seedBase+s1+2), s4x: getSensValue(150, 179, seedBase+s1+3),
+                    awm: getSensValue(92, 126, seedBase+s1+4), cam: getSensValue(128, 166, seedBase+s1+5),
+                    fire: getSensValue(41, 49, seedBase+s1+6), dpi: getSensValue(530, 610, seedBase+s1+7) + dpiMod
+                });
+
+                let s1 = createSensi("🎯 KHANG CHEAT - CHUYÊN RANK", "purple", 185, 193, 146, 162, 10);
+                let s2 = createSensi("🎪 KHANG CHEAT - CHUYÊN PHÒNG", "orange", 194, 199, 184, 196, 20);
+                let s3 = { title: "🛡️ KHANG CHEAT - TỐI ƯU CẢM GIÁC TAY", color: "green", look: Math.round((s1.look+s2.look)/2), reddot: Math.round((s1.reddot+s2.reddot)/2), s2x: Math.round((s1.s2x+s2.s2x)/2), s4x: Math.round((s1.s4x+s2.s4x)/2), awm: Math.round((s1.awm+s2.awm)/2), cam: Math.round((s1.cam+s2.cam)/2), fire: Math.round((s1.fire+s2.fire)/2), dpi: Math.round((s1.dpi+s2.dpi)/2) };
+
+                [s1, s2, s3].forEach(s => {
+                    const div = document.createElement("div"); div.className = "ios-table";
+                    div.innerHTML = `<div class="table-title">${s.title}</div>
+                        ${['look', 'reddot', 's2x', 's4x', 'awm'].map((k,i) => `<div class="ff-row"><div class="ff-meta"><span>${['Nhìn xung quanh', 'Red Dot', 'Ống ngắm 2x', 'Ống ngắm 4x', 'Súng ngắm'][i]}</span><span>${s[k]}</span></div><div class="ff-bar-bg"><div class="ff-bar-fill ${s.color}" data-width="${s[k]/2}%"></div></div></div>`).join('')}
+                        <div class="extra-box"><div style="text-align:center"><div class="extra-label">Nút Bắn</div><div class="extra-val">${s.fire}%</div></div>${os==='Android'?`<div style="text-align:center"><div class="extra-label">DPI Máy</div><div class="extra-val">${s.dpi}</div></div>`:''}</div>`;
+                    tablesDynamicArea.appendChild(div);
+                });
+                resultsBox.classList.add("show");
+                setTimeout(() => document.querySelectorAll('.ff-bar-fill').forEach(f => f.style.width = f.getAttribute('data-width')), 50);
+                saveToHistory(os, phoneRaw, gamever);
+            }, 800);
+        }
+
+        function saveToHistory(os, phone, game) {
+            let h = JSON.parse(localStorage.getItem("khang_vip_hist") || "[]").filter(i => !(i.os===os && i.phone===phone));
+            h.unshift({os, phone, game}); if(h.length>3) h.pop();
+            localStorage.setItem("khang_vip_hist", JSON.stringify(h)); renderHistory();
+        }
+
+        function renderHistory() {
+            const box = document.getElementById("historyBox");
+            let h = JSON.parse(localStorage.getItem("khang_vip_hist") || "[]");
+            if(!h.length) { box.innerHTML = `<p style="text-align:center; color: var(--ios-text-secondary);">Chưa có lịch sử</p>`; return; }
+            box.innerHTML = h.map(i => `<div class="history-item" onclick="loadHist('${i.phone}','${i.os}','${i.game}')"><span><i class="${i.os==='Android'?'fa-brands fa-android':'fa-brands fa-apple'}"></i> ${i.phone}</span><span style="color:var(--ios-blue);"><i class="fa-solid fa-rotate-right"></i></span></div>`).join('');
+        }
+        function loadHist(p,o,g) { document.getElementById("phoneInput").value=p; document.getElementById(o==="Android"?"os_android":"os_ios").checked=true; document.getElementById(g==="FFMAX"?"game_max":"game_th").checked=true; generateSensi(); }
+        function clearHistory() { localStorage.removeItem("khang_vip_hist"); renderHistory(); }
+
+        window.onload = () => { loadSavedTheme(); renderHistory(); };
+    </script>
+</body>
+</html>
+ 
